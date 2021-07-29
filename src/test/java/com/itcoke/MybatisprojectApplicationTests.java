@@ -3,6 +3,7 @@ package com.itcoke;
 import com.itcoke.bean.Person;
 import com.itcoke.mapper.PersonMapper;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -42,7 +43,7 @@ public class MybatisprojectApplicationTests {
         String namespace = "com.itcoke.mapper.PersonMapper";
         String method = "selectPersonById";
         //根据 sqlSessionFactory 产生 session
-        SqlSession sqlSession = sessionFactory.openSession();
+        SqlSession sqlSession = sessionFactory.openSession(ExecutorType.SIMPLE);
         Person person = sqlSession.selectOne(namespace + "." + method, 1L);
         System.out.println(person);
         sqlSession.close();

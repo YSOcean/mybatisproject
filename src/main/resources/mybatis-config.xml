@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+    <settings>
+        <!--开启二级缓存，默认值为 true-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
     <!-- 可以配置多个运行环境，但是每个 SqlSessionFactory 实例只能选择一个运行环境  -->
     <!-- 默认使用的环境 ID,名字随意，但是要匹配下面其中一个环境 ID -->
     <environments default="development">
